@@ -81,19 +81,14 @@ if __name__ == '__main__':
 	siro_urlgen = lambda x : 'http://blog.livedoor.jp/kirekawa39-siro/archives/siro-%d.html' %x
 	
 	parser = argparse.ArgumentParser()
-
 	parser.add_argument("start", type=int, help='start number')
-
 	parser.add_argument("end", type=int, help='end number')
-
 	parser.add_argument('-g', '--gana', 
-						help='download image from gana200', 
-						action="store_true")
-
+			    help='download image from gana200', 
+			    action="store_true")
 	parser.add_argument('-s', '--siro', 
-						help='download image from siro', 
-						action="store_true")
-
+			    help='download image from siro', 
+			    action="store_true")
 	args = parser.parse_args()
 	if args.gana:
 		i = ImageParser('GANA200')
