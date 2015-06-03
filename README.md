@@ -1,5 +1,4 @@
-# JAV-Image-parser
-Japanese AV image parser (SIRO, GANA200)
+# JAV-Image-parser (SIRO, GANA200)
 
 usage: jav_image_parser.py [-h] [-g] [-s] start end
 
