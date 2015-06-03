@@ -22,40 +22,31 @@ class ImageParser:
 		'''
 		:: getting image urls from response_text
 		'''
-		self.img_urls = Selector(text=res_text)\
-			            .xpath('//a/@href').re('.*jpg$')
+		self.img_urls = Selector(text=res_text).xpath('//a/@href').re('.*jpg$')
 		return self.img_urls
 
 	def get_description(self, res_text):
 		'''
 		:: getting description from response_text
 		'''
-		self.desc_contents = Selector(text=res_text)\
-					        .xpath('//blockquote/text()').extract()
+		self.desc_contents = Selector(text=res_text).xpath('//blockquote/text()').extract()
 		return self.desc_contents
 
-	def save_stuff(self, sub_dir_name, img_urls, 
-				   desc_contents, text_file_name='description.txt'):
+	def save_stuff(self, sub_dir_name, img_urls, desc_contents, text_file_name='description.txt'):
 		'''
 		:: save images and description each subdir
 		'''
 		self.sub_dir_path = os.path.join(self.root_dir_path, sub_dir_name)
 		self.sub_dir_desc_file_name = os.path.join(self.sub_dir_path, text_file_name)
-
 		if not os.path.exists(self.sub_dir_path):
 			os.mkdir(self.sub_dir_path)
-
 		os.chdir(self.sub_dir_path)
-
-		with codecs.open(self.sub_dir_desc_file_name, 
-			             'a', encoding='utf-8') as f:
+		with codecs.open(self.sub_dir_desc_file_name,  'a', encoding='utf-8') as f:
 			for content in desc_contents:
 				f.write(content)
-
 		for img_url in img_urls:
 			cmd = 'wget -nc -t 1 %s &' %img_url
 			os.system(cmd)
-
 		os.chdir(self.root_dir_path)
 
 	def multi_save_stuff(self, urlgen, start_num, end_num):
@@ -67,13 +58,11 @@ class ImageParser:
 			res_text = requests.get(url).text
 			img_urls = self.get_image_urls(res_text)
 			desc_contents = self.get_description(res_text)
-
 			if not img_urls:
 				print('No images!!!!')
 				continue
 			sub_dir_name = url.split('/')[-1].strip('.html')
 			self.save_stuff(sub_dir_name, img_urls, desc_contents)
-
 
 if __name__ == '__main__':
 
