@@ -21,7 +21,7 @@
 # Test Bed
 **OS X Yosemite 10.10.3**
 * 2.5GHz Intel Core i5 / 4G / AMD Radeon
-```
+```python
 def test(x):
     print(x)
 ```
