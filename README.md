@@ -1,8 +1,8 @@
 # JAVImageDownloader (SIRO, GANA200)
 
 **usage: jav_image_download.py [-h] [-g] [-s] start end**
-* siro example -> jav_image.download.py -s 1011 1022
-* gana example -> jav_image.download.py -g 560 580
+* siro example -> jav_image_download.py -s 1011 1022
+* gana example -> jav_image_download.py -g 560 580
 
 # ScreenShot 
 ![alt tag](https://github.com/daite/JAV-Image-parser/blob/master/test_image/sample.png)
