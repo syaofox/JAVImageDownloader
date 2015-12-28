@@ -26,7 +26,7 @@ import requests
 import argparse
 import os
 
-class ImageParser:
+class ImageDownloader:
 	def __init__(self, root_dir_name):
 		'''
 		:: init function 
@@ -99,10 +99,10 @@ if __name__ == '__main__':
 			    action="store_true")
 	args = parser.parse_args()
 	if args.gana:
-		i = ImageParser('GANA200')
+		i = ImageDownloader('GANA200')
 		i.multi_save_stuff(gana_urlgen, args.start, args.end)
 	elif args.siro:
-		i = ImageParser('SIRO')
+		i = ImageDownloader('SIRO')
 		i.multi_save_stuff(siro_urlgen, args.start, args.end)
 	else:
 		parser.print_help()
