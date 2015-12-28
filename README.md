@@ -1,4 +1,4 @@
-# JAV-Image-parser (SIRO, GANA200)
+# JAVImageDownloader (SIRO, GANA200)
 
 **usage: jav_image_parser.py [-h] [-g] [-s] start end**
 * siro example -> jav_image.parser.py -s 1011 1022
